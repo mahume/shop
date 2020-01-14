@@ -2,9 +2,10 @@
   "name": "shop",
   "version": "1.0.0",
   "description": "## About",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "server": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -16,5 +17,11 @@
   "bugs": {
     "url": "https://github.com/mahume/shop/issues"
   },
-  "homepage": "https://github.com/mahume/shop#readme"
+  "homepage": "https://github.com/mahume/shop#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
 }
