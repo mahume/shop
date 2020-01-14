@@ -4,7 +4,7 @@
 
 ## Tech
 
-- Handlebars.js
+- EJS
 - Node.js
 - Express.js
 
