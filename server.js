@@ -1,6 +1,10 @@
 const path = require("path");
 const express = require("express");
 
+const adminRoutes = require("./routes/admin");
+const shopRoutes = require("./routes/shop");
+const { get404 } = require("./controllers/error");
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -16,15 +20,10 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
 
 // ROUTES
-const adminRoutes = require("./routes/admin");
-const shopRoutes = require("./routes/shop");
-
-app.use("/admin", adminRoutes.routes);
+app.use("/admin", adminRoutes);
 app.use(shopRoutes);
 
 // ERROR HANDLERS
-app.use((req, res, next) => {
-  res.status(404).render("404", { pageTitle: "Page Not Found" });
-});
+app.use(get404);
 
 app.listen(PORT, () => console.log(`Listening on http://localhost:${PORT}`));
